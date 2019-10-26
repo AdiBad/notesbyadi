@@ -19,12 +19,6 @@ smalldataset = EEGdata(1:50, 1:50);
 
 %Remove baseline to account for impedence
 
-
-
-
-
-
-
 %remove jitter using baseline
 %baseline = mean(first ten columns)
 
@@ -40,6 +34,7 @@ for i = 1:50
 end
 
 %Plot the synchronized average
+
 figure('name','Sync Av');
 time = linspace(1/250, 50/250, 50);
 plot(time,template);
@@ -47,6 +42,7 @@ ylabel('Amplitude');
 xlabel('Time');
 
 %Overlap the plot
+
 figure('name','Overlapped');
 for i = 1:50
     plot(time, smalldataset, 'g');
@@ -98,9 +94,4 @@ inside = sqrt(inside);
 
 ed_value = inside/50;
 
-
-
-
-
-
-
+fprintf('SNR is %2.2f ', snr_value, ' Eulcidean distance is %2.2f ', ed_value);
